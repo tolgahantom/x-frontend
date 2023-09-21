@@ -1,0 +1,113 @@
+@import "../../../scss/styles.scss";
+
+.sidebar {
+  width: 27.5rem;
+  min-height: 100vh;
+  padding: 0 0.8rem;
+
+  .logo {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $hover-color;
+      transition: background-color 0.3s;
+    }
+
+    & svg {
+      width: 3rem;
+      height: 3rem;
+    }
+  }
+
+  .menu {
+    margin-top: 0.2rem;
+    margin-bottom: 0.4rem;
+
+    .menu-links {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+
+      .more {
+        cursor: pointer;
+        margin: 0;
+        padding: 0;
+        text-align: left;
+        outline: none;
+        border: none;
+        background-color: transparent;
+        color: #fff;
+      }
+
+      .menu-link-item {
+        width: 100%;
+        cursor: pointer;
+
+        .active-logo {
+          display: none;
+        }
+
+        .passive-logo {
+          display: block;
+        }
+
+        &.active .active-logo {
+          display: block;
+        }
+        &.active .passive-logo {
+          display: none;
+        }
+
+        &.active {
+          font-weight: bold;
+        }
+
+        &:hover .hover {
+          background-color: $hover-color;
+          transition: background-color 0.3s;
+        }
+
+        .hover {
+          gap: 2rem;
+          display: inline-flex;
+          padding: 1.2rem;
+          align-items: center;
+          justify-content: space-between;
+          border-radius: 3rem;
+
+          .menu-link-item-logo {
+            width: 2.625rem;
+            height: 2.625rem;
+            position: relative;
+
+            .menu-link-item-logo-span {
+              position: absolute;
+              top: -0.6rem;
+              right: -0.4rem;
+              width: 1.8rem;
+              height: 1.8rem;
+              font-size: 1.1rem;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              background-color: $twitter-blue;
+              border-radius: 50%;
+            }
+          }
+
+          .menu-link-item-text {
+            font-size: 2rem;
+            padding-right: 1.6rem;
+          }
+        }
+      }
+    }
+  }
+}

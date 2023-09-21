@@ -1,0 +1,36 @@
+$bg-color: black;
+$text-color: white;
+$border-color: #2f3336;
+$hover-color: #eff3f41a;
+$twitter-blue: #1d9bf0;
+$btn-small: 3rem;
+$btn-md: 4rem;
+$btn-big: 5rem;
+
+.btn.btn-primary {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.5rem;
+  width: 90%;
+  color: #fff;
+  padding: 0 1.6rem;
+  border-radius: 3rem;
+  background-color: #1d9bf0;
+}
+
+.btn.btn-small {
+  height: $btn-small;
+}
+.btn.btn-md {
+  height: $btn-md;
+}
+.btn.btn-big {
+  height: $btn-big;
+}
+
+.btn.btn-primary:hover {
+  transition: all 0.3s;
+  background-color: #1777b8;
+}

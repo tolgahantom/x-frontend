@@ -1,0 +1,70 @@
+<aside class="sidebar">
+  <div class="logo" [routerLink]="['/']">
+    <svg
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      class="r-1nao33i r-4qtqp9 r-yyyyoo r-16y2uox r-8kz0gk r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-lrsllp"
+    >
+      <path
+        fill="#fff"
+        d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+      />
+    </svg>
+  </div>
+  <nav class="menu">
+    <ul class="menu-links">
+      <li
+        *ngFor="let menu of menuItems"
+        class="menu-link-item"
+        [routerLink]="[menu.path]"
+        [routerLinkActive]="'active'"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <div class="hover">
+          <div class="menu-link-item-logo">
+            <span class="menu-link-item-logo-span" *ngIf="menu.notification">{{
+              menu?.notification
+            }}</span>
+            <svg
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              class="active-logo r-1nao33i r-4qtqp9 r-yyyyoo r-lwhw9o r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-cnnz9e"
+            >
+              <g>
+                <path fill="#fff" [attr.d]="menu.icon.active"></path>
+              </g>
+            </svg>
+            <svg
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              class="passive-logo r-1nao33i r-4qtqp9 r-yyyyoo r-lwhw9o r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-cnnz9e"
+            >
+              <path fill="#fff" [attr.d]="menu.icon.passive"></path>
+            </svg>
+          </div>
+          <div class="menu-link-item-text">{{ menu.title }}</div>
+        </div>
+      </li>
+      <button class="more menu-link-item">
+        <div class="hover">
+          <div class="menu-link-item-logo">
+            <svg
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              class="passive-logo r-1nao33i r-4qtqp9 r-yyyyoo r-lwhw9o r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-cnnz9e"
+            >
+              <g>
+                <path
+                  fill="#fff"
+                  d="M3.75 12c0-4.56 3.69-8.25 8.25-8.25s8.25 3.69 8.25 8.25-3.69 8.25-8.25 8.25S3.75 16.56 3.75 12zM12 1.75C6.34 1.75 1.75 6.34 1.75 12S6.34 22.25 12 22.25 22.25 17.66 22.25 12 17.66 1.75 12 1.75zm-4.75 11.5c.69 0 1.25-.56 1.25-1.25s-.56-1.25-1.25-1.25S6 11.31 6 12s.56 1.25 1.25 1.25zm9.5 0c.69 0 1.25-.56 1.25-1.25s-.56-1.25-1.25-1.25-1.25.56-1.25 1.25.56 1.25 1.25 1.25zM13.25 12c0 .69-.56 1.25-1.25 1.25s-1.25-.56-1.25-1.25.56-1.25 1.25-1.25 1.25.56 1.25 1.25z"
+                ></path>
+              </g>
+            </svg>
+          </div>
+          <div class="menu-link-item-text">Daha Fazla</div>
+        </div>
+      </button>
+    </ul>
+  </nav>
+  <button class="btn btn-primary btn-big">Gönder</button>
+</aside>

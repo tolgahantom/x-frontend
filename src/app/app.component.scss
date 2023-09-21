@@ -1,0 +1,20 @@
+@import "../scss/styles.scss";
+
+.main-div {
+  width: 1265px;
+  margin: auto;
+  display: flex;
+
+  .content-rightbar {
+    display: flex;
+    gap: 30px;
+    flex: 1;
+
+    .content-component {
+      flex: 1;
+      max-width: 600px;
+      border-left: 1px solid $border-color;
+      border-right: 1px solid $border-color;
+    }
+  }
+}

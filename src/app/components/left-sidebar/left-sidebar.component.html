@@ -45,7 +45,13 @@
           <div class="menu-link-item-text">{{ menu.title }}</div>
         </div>
       </li>
-      <button class="more menu-link-item">
+
+      <button
+        class="more menu-link-item btn btn-primary"
+        [popover]="popover"
+        #pop="bs-popover"
+        [outsideClick]="true"
+      >
         <div class="hover">
           <div class="menu-link-item-logo">
             <svg
@@ -67,4 +73,421 @@
     </ul>
   </nav>
   <button class="btn btn-primary btn-big">Gönder</button>
+
+  <div class="profile-box" [popover]="profilePopover" [outsideClick]="true">
+    <div class="profile-photo">
+      <img src="{{ activeAccount.pp }}" alt="" />
+    </div>
+    <div class="profile-names">
+      <div class="profile-name">{{ activeAccount.name }}</div>
+      <div class="profile-username">@{{ activeAccount.username }}</div>
+    </div>
+    <div class="profile-settings-icon">
+      <svg
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+        class="r-1nao33i r-4qtqp9 r-yyyyoo r-1xvli5t r-dnmrzs r-bnwqim r-1plcrui r-lrvibr"
+      >
+        <g>
+          <path
+            fill="#fff"
+            d="M3 12c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm9 2c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm7 0c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"
+          ></path>
+        </g>
+      </svg>
+    </div>
+  </div>
 </aside>
+
+<ng-template #appearance>
+  <div class="modal">
+    <div class="modal-body">
+      <h3 class="modal-title">Görünümünü özelleştir</h3>
+      <p class="modal-subtitle">
+        Bu ayarlar, bu tarayıcıdaki tüm X hesaplarını etkiler.
+      </p>
+      <div class="preview-tweet">
+        <div class="preview-pp">
+          <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            class="r-1nao33i r-4qtqp9 r-yyyyoo r-16y2uox r-8kz0gk r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-yc9v9c"
+          >
+            <g>
+              <path
+                fill="#fff"
+                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+              ></path>
+            </g>
+          </svg>
+        </div>
+        <div class="preview-content">
+          <div class="preview-content-names">
+            <p class="names-name">
+              X
+              <svg
+                viewBox="0 0 22 22"
+                aria-label="Onaylanmış hesap"
+                role="img"
+                class="r-1cvl2hr r-4qtqp9 r-yyyyoo r-1xvli5t r-9cviqr r-175jvib r-1c647hd r-bnwqim r-1plcrui r-lrvibr"
+                data-testid="icon-verified"
+              >
+                <g>
+                  <path
+                    fill="#1d9bf0"
+                    d="M20.396 11c-.018-.646-.215-1.275-.57-1.816-.354-.54-.852-.972-1.438-1.246.223-.607.27-1.264.14-1.897-.131-.634-.437-1.218-.882-1.687-.47-.445-1.053-.75-1.687-.882-.633-.13-1.29-.083-1.897.14-.273-.587-.704-1.086-1.245-1.44S11.647 1.62 11 1.604c-.646.017-1.273.213-1.813.568s-.969.854-1.24 1.44c-.608-.223-1.267-.272-1.902-.14-.635.13-1.22.436-1.69.882-.445.47-.749 1.055-.878 1.688-.13.633-.08 1.29.144 1.896-.587.274-1.087.705-1.443 1.245-.356.54-.555 1.17-.574 1.817.02.647.218 1.276.574 1.817.356.54.856.972 1.443 1.245-.224.606-.274 1.263-.144 1.896.13.634.433 1.218.877 1.688.47.443 1.054.747 1.687.878.633.132 1.29.084 1.897-.136.274.586.705 1.084 1.246 1.439.54.354 1.17.551 1.816.569.647-.016 1.276-.213 1.817-.567s.972-.854 1.245-1.44c.604.239 1.266.296 1.903.164.636-.132 1.22-.447 1.68-.907.46-.46.776-1.044.908-1.681s.075-1.299-.165-1.903c.586-.274 1.084-.705 1.439-1.246.354-.54.551-1.17.569-1.816zM9.662 14.85l-3.429-3.428 1.293-1.302 2.072 2.072 4.4-4.794 1.347 1.246z"
+                  ></path>
+                </g>
+              </svg>
+            </p>
+            <div class="names-nickname">@X <span>.</span> 15d</div>
+          </div>
+          <div class="preview-content-content">
+            X'in merkezinde, tıpkı bunun gibi gönderi denen kısa mesajlar yatar.
+            Gönderiler; fotoğraflar, videolar, bağlantılar, metinler, etiketler
+            ve <span class="x">@X</span> gibi bahsetmeler içerebilir.
+          </div>
+        </div>
+      </div>
+      <div class="color-changer">
+        <div class="template-title">Renk</div>
+        <div class="template-background">
+          <ul class="color-list">
+            <li
+              class="color blue"
+              (click)="changeColor('blue')"
+              [class.active]="activeColor == 'blue'"
+            ></li>
+            <li
+              class="color yellow"
+              (click)="changeColor('yellow')"
+              [class.active]="activeColor == 'yellow'"
+            ></li>
+            <li
+              class="color pink"
+              (click)="changeColor('pink')"
+              [class.active]="activeColor == 'pink'"
+            ></li>
+            <li
+              class="color purple"
+              (click)="changeColor('purple')"
+              [class.active]="activeColor == 'purple'"
+            ></li>
+            <li
+              class="color orange"
+              (click)="changeColor('orange')"
+              [class.active]="activeColor == 'orange'"
+            ></li>
+            <li
+              class="color green"
+              (click)="changeColor('green')"
+              [class.active]="activeColor == 'green'"
+            ></li>
+          </ul>
+        </div>
+      </div>
+      <div class="theme-changer">
+        <div class="template-title">Arka Plan</div>
+        <div class="template-background">
+          <div class="buttons">
+            <button
+              class="button light"
+              [class.active]="selectedTheme == 'light'"
+              (click)="changeTheme('light')"
+            >
+              <div
+                class="button-checkbox"
+                [class.active]="selectedTheme == 'light'"
+              ></div>
+              Varsayılan
+            </button>
+            <button
+              class="button dim"
+              [class.active]="selectedTheme == 'dim'"
+              (click)="changeTheme('dim')"
+            >
+              <div
+                class="button-checkbox"
+                [class.active]="selectedTheme == 'dim'"
+              ></div>
+              Loş
+            </button>
+            <button
+              class="button dark"
+              [class.active]="selectedTheme == 'dark'"
+              (click)="changeTheme('dark')"
+            >
+              <div
+                class="button-checkbox"
+                [class.active]="selectedTheme == 'dark'"
+              ></div>
+              Işıklar Kapalı
+            </button>
+          </div>
+        </div>
+      </div>
+      <button class="submit" (click)="modalRef?.hide()">Bitti</button>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #popover>
+  <div class="template-list">
+    <ul class="template-list-top">
+      <li class="template-list-top-item">
+        <div class="template-list-top-item-logo">
+          <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            class="r-1kihuf0 r-1nao33i r-4qtqp9 r-yyyyoo r-1q142lx r-1472mwg r-mbgqwd r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-lrsllp"
+            data-testid="icon"
+          >
+            <path
+              fill="#fff"
+              d="M4 4.5C4 3.12 5.119 2 6.5 2h11C18.881 2 20 3.12 20 4.5v18.44l-8-5.71-8 5.71V4.5zM6.5 4c-.276 0-.5.22-.5.5v14.56l6-4.29 6 4.29V4.5c0-.28-.224-.5-.5-.5h-11z"
+            />
+          </svg>
+        </div>
+        <div class="template-list-top-item-text">Yer İşaretleri</div>
+      </li>
+      <li class="template-list-top-item">
+        <div class="template-list-top-item-logo">
+          <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            class="r-1kihuf0 r-1nao33i r-4qtqp9 r-yyyyoo r-1q142lx r-1472mwg r-mbgqwd r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-lrsllp"
+            data-testid="icon"
+          >
+            <path
+              fill="#fff"
+              d="M12 3.786c-4.556 0-8.25 3.694-8.25 8.25s3.694 8.25 8.25 8.25c1.595 0 3.081-.451 4.341-1.233l1.054 1.7c-1.568.972-3.418 1.534-5.395 1.534-5.661 0-10.25-4.589-10.25-10.25S6.339 1.786 12 1.786s10.25 4.589 10.25 10.25c0 .901-.21 1.77-.452 2.477-.592 1.731-2.343 2.477-3.917 2.334-1.242-.113-2.307-.74-3.013-1.647-.961 1.253-2.45 2.011-4.092 1.78-2.581-.363-4.127-2.971-3.76-5.578.366-2.606 2.571-4.688 5.152-4.325 1.019.143 1.877.637 2.519 1.342l1.803.258-.507 3.549c-.187 1.31.761 2.509 2.079 2.629.915.083 1.627-.356 1.843-.99.2-.585.345-1.224.345-1.83 0-4.556-3.694-8.25-8.25-8.25zm-.111 5.274c-1.247-.175-2.645.854-2.893 2.623-.249 1.769.811 3.143 2.058 3.319 1.247.175 2.645-.854 2.893-2.623.249-1.769-.811-3.144-2.058-3.319z"
+            />
+          </svg>
+        </div>
+        <div class="template-list-top-item-text">Bağlan</div>
+      </li>
+      <li class="template-list-top-item">
+        <div class="template-list-top-item-logo">
+          <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            class="r-1kihuf0 r-1nao33i r-4qtqp9 r-yyyyoo r-1q142lx r-1472mwg r-mbgqwd r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-lrsllp"
+            data-testid="icon"
+          >
+            <path
+              fill="#fff"
+              d="M23 3v14h-2V5H5V3h18zM10 17c1.1 0 2-1.34 2-3s-.9-3-2-3-2 1.34-2 3 .9 3 2 3zM1 7h18v14H1V7zm16 10c-1.1 0-2 .9-2 2h2v-2zm-2-8c0 1.1.9 2 2 2V9h-2zM3 11c1.1 0 2-.9 2-2H3v2zm0 4c2.21 0 4 1.79 4 4h6c0-2.21 1.79-4 4-4v-2c-2.21 0-4-1.79-4-4H7c0 2.21-1.79 4-4 4v2zm0 4h2c0-1.1-.9-2-2-2v2z"
+            />
+          </svg>
+        </div>
+        <div class="template-list-top-item-text">Para Kazanma</div>
+      </li>
+    </ul>
+    <div class="template-list-line"></div>
+
+    <ul class="template-list-bottom">
+      <accordion>
+        <accordion-group [isOpen]="false" #myGroup>
+          <li class="template-list-bottom-item" accordion-heading>
+            <div class="template-list-bottom-item-text">
+              İçerik Üreticisi Stüdyosu
+            </div>
+            <div class="template-list-bottom-item-icon">
+              <i
+                class="fa-solid fa-chevron-down"
+                [ngClass]="{'active': myGroup?.isOpen,}"
+              ></i>
+            </div>
+          </li>
+          <ul class="accordioncontent-list">
+            <li class="accordioncontent-list-item">
+              <div class="accordioncontent-list-item-logo">
+                <svg
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                  class="r-1nao33i r-4qtqp9 r-yyyyoo r-1q142lx r-1xvli5t r-1b7u577 r-dnmrzs r-bnwqim r-1plcrui r-lrvibr"
+                  data-testid="icon"
+                >
+                  <g>
+                    <path
+                      fill="#fff"
+                      d="M8.75 21V3h2v18h-2zM18 21V8.5h2V21h-2zM4 21l.004-10h2L6 21H4zm9.248 0v-7h2v7h-2z"
+                    ></path>
+                  </g>
+                </svg>
+              </div>
+              <div class="accordioncontent-list-item-text">İstatistikler</div>
+            </li>
+          </ul>
+        </accordion-group>
+        <accordion-group [isOpen]="false" #myGroup2>
+          <li class="template-list-bottom-item" accordion-heading>
+            <div class="template-list-bottom-item-text">
+              Profesyonel Araçlar
+            </div>
+            <div class="template-list-bottom-item-icon">
+              <i
+                class="fa-solid fa-chevron-down"
+                [ngClass]="{'active': myGroup2?.isOpen,}"
+              ></i>
+            </div>
+          </li>
+          <ul class="accordioncontent-list">
+            <li class="accordioncontent-list-item">
+              <div class="accordioncontent-list-item-logo">
+                <svg
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                  class="r-1nao33i r-4qtqp9 r-yyyyoo r-1q142lx r-1xvli5t r-1b7u577 r-dnmrzs r-bnwqim r-1plcrui r-lrvibr"
+                  data-testid="icon"
+                >
+                  <g>
+                    <path
+                      fill="#fff"
+                      d="M8.75 21V3h2v18h-2zM18 21V8.5h2V21h-2zM4 21l.004-10h2L6 21H4zm9.248 0v-7h2v7h-2z"
+                    ></path>
+                  </g>
+                </svg>
+              </div>
+              <div class="accordioncontent-list-item-text">İstatistikler</div>
+            </li>
+          </ul>
+        </accordion-group>
+        <accordion-group [isOpen]="false" #myGroup3>
+          <li class="template-list-bottom-item" accordion-heading>
+            <div class="template-list-bottom-item-text">Ayarlar ve Destek</div>
+            <div class="template-list-bottom-item-icon">
+              <i
+                class="fa-solid fa-chevron-down"
+                [ngClass]="{'active': myGroup3?.isOpen,}"
+              ></i>
+            </div>
+          </li>
+          <ul class="accordioncontent-list">
+            <li class="accordioncontent-list-item">
+              <div class="accordioncontent-list-item-logo">
+                <svg
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                  class="r-1nao33i r-4qtqp9 r-yyyyoo r-1q142lx r-1xvli5t r-1b7u577 r-dnmrzs r-bnwqim r-1plcrui r-lrvibr"
+                  data-testid="icon"
+                >
+                  <g>
+                    <path
+                      fill="#fff"
+                      d="M10.54 1.75h2.92l1.57 2.36c.11.17.32.25.53.21l2.53-.59 2.17 2.17-.58 2.54c-.05.2.04.41.21.53l2.36 1.57v2.92l-2.36 1.57c-.17.12-.26.33-.21.53l.58 2.54-2.17 2.17-2.53-.59c-.21-.04-.42.04-.53.21l-1.57 2.36h-2.92l-1.58-2.36c-.11-.17-.32-.25-.52-.21l-2.54.59-2.17-2.17.58-2.54c.05-.2-.03-.41-.21-.53l-2.35-1.57v-2.92L4.1 8.97c.18-.12.26-.33.21-.53L3.73 5.9 5.9 3.73l2.54.59c.2.04.41-.04.52-.21l1.58-2.36zm1.07 2l-.98 1.47C10.05 6.08 9 6.5 7.99 6.27l-1.46-.34-.6.6.33 1.46c.24 1.01-.18 2.07-1.05 2.64l-1.46.98v.78l1.46.98c.87.57 1.29 1.63 1.05 2.64l-.33 1.46.6.6 1.46-.34c1.01-.23 2.06.19 2.64 1.05l.98 1.47h.78l.97-1.47c.58-.86 1.63-1.28 2.65-1.05l1.45.34.61-.6-.34-1.46c-.23-1.01.18-2.07 1.05-2.64l1.47-.98v-.78l-1.47-.98c-.87-.57-1.28-1.63-1.05-2.64l.34-1.46-.61-.6-1.45.34c-1.02.23-2.07-.19-2.65-1.05l-.97-1.47h-.78zM12 10.5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5c.82 0 1.5-.67 1.5-1.5s-.68-1.5-1.5-1.5zM8.5 12c0-1.93 1.56-3.5 3.5-3.5 1.93 0 3.5 1.57 3.5 3.5s-1.57 3.5-3.5 3.5c-1.94 0-3.5-1.57-3.5-3.5z"
+                    ></path>
+                  </g>
+                </svg>
+              </div>
+              <div class="accordioncontent-list-item-text">
+                Ayarlar ve Gizlilik
+              </div>
+            </li>
+            <li class="accordioncontent-list-item">
+              <div class="accordioncontent-list-item-logo">
+                <svg
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                  class="r-1nao33i r-4qtqp9 r-yyyyoo r-1q142lx r-1xvli5t r-1b7u577 r-dnmrzs r-bnwqim r-1plcrui r-lrvibr"
+                  data-testid="icon"
+                >
+                  <g>
+                    <path
+                      fill="#fff"
+                      d="M11.57 11.96l.99-.79c.33-.26.56-.53.7-.8.15-.27.22-.57.22-.91 0-.41-.12-.74-.38-.97s-.62-.35-1.09-.35-.85.12-1.13.37c-.26.25-.4.59-.4 1.03 0 .2.03.42.08.65l-2.07-.15c-.06-.29-.09-.55-.09-.79 0-.84.33-1.51.98-2.01.67-.49 1.55-.74 2.66-.74 1.17 0 2.07.24 2.71.73.63.48.95 1.16.95 2.04 0 .98-.47 1.86-1.4 2.65l-.87.73c-.17.15-.29.28-.36.4-.06.11-.09.26-.09.45v.46h-2.1v-.67c0-.3.06-.55.17-.75.12-.2.29-.39.52-.58zm-.52 5.17c.24.25.56.37.93.37.39 0 .7-.12.94-.37.25-.25.37-.56.37-.94 0-.39-.12-.7-.37-.95-.24-.25-.55-.37-.94-.37-.37 0-.69.12-.93.37s-.36.56-.36.95c0 .38.12.69.36.94zM22.25 12c0 5.66-4.59 10.25-10.25 10.25S1.75 17.66 1.75 12 6.34 1.75 12 1.75 22.25 6.34 22.25 12zM12 20.25c4.56 0 8.25-3.69 8.25-8.25S16.56 3.75 12 3.75 3.75 7.44 3.75 12s3.69 8.25 8.25 8.25z"
+                    ></path>
+                  </g>
+                </svg>
+              </div>
+              <div class="accordioncontent-list-item-text">Yardım Merkezi</div>
+            </li>
+            <li
+              class="accordioncontent-list-item"
+              (click)="openModal(appearance)"
+              (click)="pop.hide()"
+            >
+              <div class="accordioncontent-list-item-logo">
+                <svg
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                  class="r-1nao33i r-4qtqp9 r-yyyyoo r-1q142lx r-1xvli5t r-1b7u577 r-dnmrzs r-bnwqim r-1plcrui r-lrvibr"
+                >
+                  <g>
+                    <path
+                      fill="#fff"
+                      d="M20 12h2v6.5c0 1.38-1.12 2.5-2.5 2.5h-15C3.12 21 2 19.88 2 18.5v-13C2 4.12 3.12 3 4.5 3H11v2H4.5c-.28 0-.5.22-.5.5v13c0 .28.22.5.5.5h15c.27 0 .5-.22.5-.5V12zm2.31-6.78l-6.33 7.18c-.2 2.02-1.91 3.6-3.98 3.6H8v-4c0-2.07 1.58-3.78 3.6-3.98l7.18-6.33c.99-.88 2.49-.83 3.43.1.93.94.98 2.44.1 3.43zm-1.52-2.01c-.19-.19-.49-.2-.69-.02l-6.08 5.36c.59.35 1.08.84 1.43 1.43l5.36-6.08c.18-.2.17-.5-.02-.69z"
+                    ></path>
+                  </g>
+                </svg>
+              </div>
+              <div class="accordioncontent-list-item-text">Görünüm</div>
+            </li>
+            <li class="accordioncontent-list-item">
+              <div class="accordioncontent-list-item-logo">
+                <svg
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                  class="r-1nao33i r-4qtqp9 r-yyyyoo r-1q142lx r-1xvli5t r-1b7u577 r-dnmrzs r-bnwqim r-1plcrui r-lrvibr"
+                  data-testid="icon"
+                >
+                  <g>
+                    <path
+                      fill="#fff"
+                      d="M11.999 22.25c-5.652 0-10.25-4.598-10.25-10.25S6.347 1.75 11.999 1.75 22.249 6.348 22.249 12s-4.598 10.25-10.25 10.25zm0-18.5c-4.549 0-8.25 3.701-8.25 8.25s3.701 8.25 8.25 8.25 8.25-3.701 8.25-8.25-3.701-8.25-8.25-8.25zm.445 6.992c1.747-.096 3.748-.689 3.768-.695l.575 1.916c-.077.022-1.616.48-3.288.689v.498c.287 1.227 1.687 2.866 2.214 3.405l-1.428 1.4c-.188-.191-1.518-1.576-2.286-3.144-.769 1.568-2.098 2.952-2.286 3.144l-1.428-1.4c.527-.54 1.927-2.178 2.214-3.405v-.498c-1.672-.209-3.211-.667-3.288-.689l.575-1.916c.02.006 2.021.6 3.768.695m0 0c.301.017.59.017.891 0M12 6.25c-.967 0-1.75.78-1.75 1.75s.783 1.75 1.75 1.75 1.75-.78 1.75-1.75-.784-1.75-1.75-1.75z"
+                    ></path>
+                  </g>
+                </svg>
+              </div>
+              <div class="accordioncontent-list-item-text">
+                Klavye Kısayolları
+              </div>
+            </li>
+          </ul>
+        </accordion-group>
+      </accordion>
+    </ul>
+  </div>
+</ng-template>
+
+<ng-template #profilePopover>
+  <div class="profile-popover">
+    <div class="profile-popover-icon">
+      <svg
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+        class="r-9uu7rm r-cqee49 r-4qtqp9 r-yyyyoo r-1tbvlxk r-n6v787 r-1xvli5t r-dnmrzs r-u8s1d r-1plcrui r-uoibet r-lrvibr r-lrsllp"
+        style="left: calc(138px)"
+      >
+        <g><path d="M22 17H2L12 6l10 11z"></path></g>
+      </svg>
+    </div>
+    <div class="profile-popover-profiles">
+      <div
+        class="profile"
+        *ngFor="let account of accounts"
+        (click)="changeAccount(account.id)"
+      >
+        <div class="profile-photo">
+          <img src="{{ account.pp }}" alt="" />
+        </div>
+        <div class="profile-popover-names">
+          <div class="profile-popover-name">{{ account.name }}</div>
+          <div class="profile-popover-username">@{{ account.username }}</div>
+        </div>
+        <div class="active-icon" *ngIf="account.activeAccount">
+          <i class="fa-solid fa-check"></i>
+        </div>
+      </div>
+    </div>
+    <div class="profile-popover-line"></div>
+    <div class="profile-popover-items">
+      <div class="profile-popover-item">
+        <span> Var olan bir hesap ekle </span>
+      </div>
+      <div class="profile-popover-item">
+        <span> @Jw65289553 hesabından çıkış yap </span>
+      </div>
+    </div>
+  </div>
+</ng-template>

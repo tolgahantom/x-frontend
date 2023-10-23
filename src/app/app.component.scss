@@ -5,7 +5,12 @@
   margin: auto;
   display: flex;
 
+  left-sidebar {
+    position: fixed;
+  }
+
   .content-rightbar {
+    margin-left: 27.5rem;
     display: flex;
     gap: 30px;
     flex: 1;

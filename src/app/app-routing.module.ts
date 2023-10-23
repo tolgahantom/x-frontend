@@ -4,7 +4,6 @@ import { HomeComponent } from './pages/home/home.component';
 import { ExploreComponent } from './pages/explore/explore.component';
 import { NotificationsComponent } from './pages/notifications/notifications.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
-import { MessagesComponent } from './pages/messages/messages.component';
 import { ListsComponent } from './pages/lists/lists.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 

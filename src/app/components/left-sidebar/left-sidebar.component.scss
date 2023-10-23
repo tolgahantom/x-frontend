@@ -2,8 +2,11 @@
 
 .sidebar {
   width: 27.5rem;
-  min-height: 100vh;
+  height: 100vh;
   padding: 0 0.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 
   .logo {
     width: 5rem;
@@ -34,6 +37,7 @@
       flex-direction: column;
       align-items: flex-start;
       justify-content: center;
+      background-color: $bg-color;
 
       .more {
         cursor: pointer;
@@ -44,6 +48,94 @@
         border: none;
         background-color: transparent;
         color: #fff;
+      }
+
+      .template-list {
+        position: absolute;
+        top: -29rem;
+        left: -13rem;
+        width: 31.8rem;
+        background-color: $bg-color;
+        box-shadow: rgba(255, 255, 255, 0.4) 0px 1px 4px;
+
+        .template-list-top {
+          font-size: 2rem;
+
+          .template-list-top-item {
+            padding: 1.6rem;
+            height: 5.6rem;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            cursor: pointer;
+
+            &:hover {
+              background-color: $hover-color;
+            }
+
+            .template-list-top-item-logo {
+              width: 2rem;
+              height: 2rem;
+              margin-right: 2.4rem;
+            }
+          }
+        }
+
+        .template-list-line {
+          background-color: $hover-color;
+          width: 89%;
+          height: 0.1rem;
+          margin: 0.2rem auto;
+        }
+
+        .template-list-bottom {
+          font-size: 1.5rem;
+
+          .template-list-bottom-item {
+            width: 100%;
+            height: 5.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.6rem;
+            cursor: pointer;
+
+            .template-list-bottom-item-icon i.active {
+              color: $twitter-blue;
+              transform: rotate(-180deg);
+              transition: 0.1s;
+            }
+
+            &:hover {
+              background-color: $hover-color;
+            }
+          }
+
+          .accordioncontent-list {
+            font-size: 1.5rem;
+
+            .accordioncontent-list-item {
+              display: flex;
+              align-items: center;
+              justify-content: flex-start;
+              padding: 1.2rem;
+              height: 4.4rem;
+              width: 100%;
+              cursor: pointer;
+
+              .accordioncontent-list-item-logo {
+                width: 2rem;
+                height: 2rem;
+                margin-right: 1.2rem;
+              }
+
+              &:hover {
+                background-color: $hover-color;
+              }
+            }
+          }
+        }
       }
 
       .menu-link-item {
@@ -107,6 +199,381 @@
             padding-right: 1.6rem;
           }
         }
+      }
+    }
+  }
+
+  .profile-box {
+    position: absolute;
+    padding: 1.2rem;
+    bottom: 1rem;
+    display: flex;
+    width: 25.9rem;
+    height: 6.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 9999px;
+
+    &:hover {
+      background-color: $hover-color;
+    }
+
+    .profile-photo {
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+      background-color: red;
+      overflow: hidden;
+      font-size: 1.5rem;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .profile-names {
+      width: 13rem;
+      padding: 0 1.2rem;
+
+      .profile-username {
+        color: #71767b;
+      }
+    }
+
+    .profile-settings-icon {
+      width: 1.9rem;
+      height: 1.9rem;
+      margin-left: 4.9rem;
+    }
+  }
+
+  .profile-popover {
+    width: 30rem;
+    max-width: 36rem;
+    min-width: 260px;
+    min-height: 30px;
+    background-color: black;
+    box-shadow: rgba(255, 255, 255, 0.4) 0px 1px 4px;
+    position: relative;
+    padding: 1.2rem 0;
+    border-radius: 2rem;
+    color: #e7e9ea;
+
+    .profile-popover-icon {
+      width: 2.4rem;
+      height: 1.6rem;
+      filter: drop-shadow(rgb(51, 54, 57) 1px -1px 1px);
+      rotate: 180deg;
+      position: absolute;
+      left: calc(13.8rem);
+
+      bottom: -1.3rem;
+    }
+
+    .profile-popover-items {
+      font-size: 1.5rem;
+
+      .profile-popover-item {
+        width: 100%;
+        cursor: pointer;
+        padding: 1.2rem 1.6rem;
+
+        &:hover {
+          background-color: $hover-color;
+        }
+
+        span {
+          display: flex;
+          width: 20rem;
+        }
+      }
+    }
+
+    .profile-popover-profiles {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      cursor: pointer;
+
+      .profile {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 1rem 1.2rem;
+        font-size: 1.5rem;
+        width: 100%;
+        &:hover {
+          background-color: $hover-color;
+        }
+
+        .profile-photo {
+          width: 4rem;
+          height: 4rem;
+          border-radius: 50%;
+          background-color: red;
+          margin-right: 2rem;
+          overflow: hidden;
+
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+
+        .active-icon {
+          position: absolute;
+          color: black;
+          right: 1.2rem;
+          background-color: greenyellow;
+          width: 1.5rem;
+          height: 1.5rem;
+          font-size: 1.2rem;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .profile-popover-username {
+          color: #71767b;
+        }
+      }
+    }
+
+    .profile-popover-line {
+      background-color: #71767b;
+      width: 100%;
+      margin: 0.2rem 0;
+      height: 0.1rem;
+    }
+  }
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(138, 138, 138, 0.1); /* Siyah ve %70 saydamlık */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Diğer elementlerin üzerinde görünmesini sağlar */
+
+  svg {
+    width: 3.6rem;
+    height: 3.6rem;
+  }
+
+  .modal-body {
+    width: 60rem;
+    background-color: black;
+    padding: 3.2rem;
+    border-radius: 1.6rem;
+    display: flex;
+    flex-direction: column;
+
+    .modal-title {
+      font-size: 2.1rem;
+      text-align: center;
+    }
+
+    .modal-subtitle {
+      text-align: center;
+      font-size: 1.4rem;
+      color: #71767b;
+      margin: 1rem 0 1.8rem;
+    }
+
+    .preview-tweet {
+      width: 48.2rem;
+      border: 1px solid #ffffff57;
+      background-color: black;
+      margin: 0 auto;
+      padding: 1.2rem;
+      border-radius: 1.6rem;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+
+      .preview-content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+
+        .preview-content-names {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          .names-name {
+            font-weight: bold;
+          }
+
+          .names-nickname {
+            font-size: 1.4rem;
+            color: #71767b;
+            font-weight: normal;
+          }
+
+          svg {
+            width: 1.8rem;
+            height: 1.8rem;
+          }
+        }
+      }
+    }
+
+    .template-title {
+      font-size: 1.2rem;
+      color: #71767b;
+      margin-bottom: 0.4rem;
+    }
+
+    .template-background {
+      background-color: #16181c;
+      border-radius: 1.6rem;
+      padding: 0.8rem 0rem;
+    }
+
+    .color-changer {
+      margin: 1rem 0;
+
+      .color-list {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+        .color {
+          cursor: pointer;
+          width: 4rem;
+          height: 4rem;
+          border-radius: 50%;
+          position: relative;
+
+          &.active::before {
+            content: "\2713";
+            font-size: 16px;
+            color: #fff;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+
+          &.blue {
+            background-color: $twitter-blue;
+          }
+          &.yellow {
+            background-color: yellow;
+          }
+          &.pink {
+            background-color: palevioletred;
+          }
+          &.purple {
+            background-color: purple;
+          }
+          &.orange {
+            background-color: orange;
+          }
+          &.green {
+            background-color: greenyellow;
+          }
+        }
+      }
+    }
+
+    .theme-changer {
+      .buttons {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+        .button {
+          outline: none;
+          border: 0.2rem solid transparent;
+          width: 16.2rem;
+          height: 6.2rem;
+          font-size: 1.4rem;
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          padding: 1.2rem;
+          font-weight: bold;
+          cursor: pointer;
+
+          &.active {
+            border: 0.2rem solid #007bff;
+          }
+
+          &.light {
+            background-color: #fff;
+            color: black;
+          }
+          &.dim {
+            background-color: #333639;
+            color: #fff;
+          }
+          &.dark {
+            background-color: black;
+            color: #fff;
+          }
+
+          &:hover .button-checkbox {
+            box-shadow: 0px 0px 0px 0.7rem rgba(126, 126, 126, 0.2);
+          }
+
+          .button-checkbox {
+            width: 2rem;
+            height: 2rem;
+            background-color: transparent;
+            border: 0.2rem solid gray;
+            border-radius: 50%;
+            cursor: pointer;
+            position: relative;
+          }
+
+          .button-checkbox.active::before {
+            background-color: #007bff;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            content: "\2713";
+            font-size: 16px;
+            color: #fff;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+        }
+      }
+    }
+
+    .submit {
+      outline: none;
+      border: none;
+      background-color: #007bff;
+      color: #fff;
+      font-size: 1.4rem;
+      display: inline-block;
+      font-weight: bold;
+      border-radius: 1.6rem;
+      width: 5.8rem;
+      height: 3.2rem;
+      cursor: pointer;
+      margin: 1.4rem auto 0;
+
+      &:hover {
+        opacity: 0.8;
       }
     }
   }

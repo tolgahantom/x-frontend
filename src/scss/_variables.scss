@@ -17,7 +17,7 @@ $btn-big: 5rem;
   color: #fff;
   padding: 0 1.6rem;
   border-radius: 3rem;
-  background-color: #1d9bf0;
+  background-color: $twitter-blue;
 }
 
 .btn.btn-small {
@@ -32,5 +32,9 @@ $btn-big: 5rem;
 
 .btn.btn-primary:hover {
   transition: all 0.3s;
-  background-color: #1777b8;
+  background-color: $twitter-blue;
+}
+
+.z-2 {
+  z-index: 2000;
 }

@@ -1,4 +1,390 @@
-p {
-  width: 350px;
-  min-height: 100vh;
+@import "../../../scss/styles.scss";
+
+.right-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.2rem 0;
+  position: relative;
+
+  .search-bar {
+    background-color: $hover-color;
+    height: 4.2rem;
+    width: 35rem;
+    padding: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 5rem;
+    position: relative;
+
+    &.focused {
+      background-color: black;
+      border: 1px solid $twitter-blue;
+    }
+
+    &.focused .icon {
+      color: $twitter-blue;
+    }
+
+    .search-input:focus & {
+      background-color: red;
+    }
+
+    .icon {
+      width: 1.6rem;
+      height: 1.6rem;
+    }
+
+    .close-icon {
+      position: absolute;
+      right: 1.2rem;
+      height: 2.2rem;
+      width: 2.2rem;
+      font-size: 1rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: $twitter-blue;
+      color: black;
+      cursor: pointer;
+    }
+
+    .search-input {
+      margin-left: 1.2rem;
+      width: 80%;
+      background-color: transparent;
+      border: none;
+      font-size: 1.5rem;
+      color: #fff;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  .search-list {
+    background-color: black;
+    box-shadow: rgba(255, 255, 255, 0.4) 0px 1px 4px;
+    border-radius: 0.8rem;
+    font-size: 1.5rem;
+    min-height: 100px;
+    max-height: calc(80vh - 53px);
+    max-width: 35rem;
+    text-align: center;
+    padding: 1.2rem;
+    color: rgb(113, 118, 123);
+  }
+
+  .premium {
+    max-width: 35rem;
+    margin: 1.6rem 0;
+    background-color: rgb(22, 24, 28);
+    border-radius: 1.6rem;
+    padding: 2rem;
+    font-weight: bold;
+    gap: 1rem;
+    color: #e7e9ea;
+    display: flex;
+    flex-direction: column;
+
+    .premium-title {
+      font-size: 2rem;
+    }
+
+    .premium-content {
+      font-size: 1.5rem;
+    }
+
+    .subscribe {
+      display: inline-block;
+      width: 10rem;
+    }
+  }
+
+  .topics,
+  .who-follow {
+    width: 35rem;
+    margin-bottom: 1.6rem;
+    background-color: rgb(22, 24, 28);
+    border-radius: 1.6rem;
+    font-weight: bold;
+    color: #e7e9ea;
+    overflow: hidden;
+
+    .topics-title,
+    .who-follow-title {
+      line-height: 2.4rem;
+      height: 4.8rem;
+      font-size: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 1.2rem 1.6rem;
+    }
+
+    .topic-list,
+    .who-follow-list {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+
+      .who-follow-item {
+        display: flex;
+        align-items: center;
+        padding: 1.2rem 1.6rem;
+        position: relative;
+
+        .who-follow-pp {
+          width: 4rem;
+          height: 4rem;
+          border-radius: 50%;
+          overflow: hidden;
+          margin-right: 1.5rem;
+
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+
+        .who-follow-names {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          font-size: 1.5rem;
+
+          &.shorter {
+            max-width: 12rem;
+          }
+
+          .who-follow-name {
+            display: flex;
+            justify-content: flex-start;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
+            &:hover {
+              text-decoration: underline;
+            }
+
+            .name-verified {
+              width: 1.4rem;
+              height: 1.4rem;
+              margin-left: 0.2rem;
+            }
+          }
+
+          .who-follow-nickname {
+            color: #71767b;
+            width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+        }
+
+        .who-follow-button {
+          cursor: pointer;
+          position: absolute;
+          padding: 0 1.6rem;
+          outline: none;
+          border: none;
+          right: 1.6rem;
+          max-width: 12.5rem;
+          height: 3.2rem;
+          border-radius: 1.6rem;
+          font-size: 1.4rem;
+          font-weight: bold;
+
+          &:hover {
+            opacity: 0.9;
+          }
+
+          &.active {
+            width: 13rem;
+            background-color: black;
+            color: #fff;
+            border: 1px solid #fff;
+          }
+
+          .unfollow {
+            display: none;
+          }
+
+          &.active:hover {
+            background-color: rgba(255, 0, 0, 0.1);
+            color: red;
+            border: 1px solid red;
+          }
+
+          &.active:hover .unfollow {
+            display: block;
+          }
+
+          &.active:hover .follow {
+            display: none;
+          }
+        }
+      }
+
+      .topic-item,
+      .who-follow-item {
+        width: 100%;
+        padding: 1.2rem 1.6rem;
+        position: relative;
+        cursor: pointer;
+        z-index: 0;
+
+        &:hover {
+          background-color: $hover-color;
+        }
+
+        .topic-title,
+        .topic-counter {
+          font-size: 1.3rem;
+          color: #71767b;
+        }
+
+        .topic-topic {
+          margin: 0.2rem 0 0.4rem 0;
+          font-size: 1.5rem;
+        }
+
+        .topic-icon {
+          width: 3.5rem;
+          height: 3.5rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: absolute;
+          top: 50%;
+          right: 1.6rem;
+          transform: translateY(-50%);
+          border-radius: 50%;
+
+          i {
+            height: 1.9rem;
+            width: 1.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+
+          &:hover {
+            background-color: #1d9bf01a;
+            color: $twitter-blue;
+            transition: all 0.3s;
+            cursor: pointer;
+          }
+
+          &:hover .topic-icon-title {
+            opacity: 1;
+          }
+
+          .topic-icon-title {
+            opacity: 0;
+            position: absolute;
+            font-size: 1rem;
+            width: 6rem;
+            line-height: 1.2rem;
+            text-align: center;
+            top: 4rem;
+            background-color: gray;
+            color: #fff;
+            transition-delay: 1s;
+          }
+        }
+
+        .more-popover {
+          background-color: black;
+          box-shadow: rgba(255, 255, 255, 0.4) 0px 1px 4px;
+          position: absolute;
+          right: -2rem;
+          top: -1rem;
+          width: 35rem;
+          border-radius: 1.6rem;
+          font-size: 1.5rem;
+          z-index: 1010 !important;
+          .more-popover-item {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 1rem;
+            height: 4rem;
+            padding: 1rem;
+          }
+        }
+
+        &.show-more {
+          height: 5.2rem;
+          display: flex;
+          align-items: center;
+          color: $twitter-blue;
+          font-size: 1.5rem;
+          font-weight: 300;
+        }
+      }
+    }
+  }
+
+  .my-custom-modal-class {
+    background: red;
+  }
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(138, 138, 138, 0.1); /* Siyah ve %70 saydamlık */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Diğer elementlerin üzerinde görünmesini sağlar */
+
+  .modal-body {
+    width: 32rem;
+    background-color: black;
+    padding: 3.2rem;
+    border-radius: 1.6rem;
+    display: flex;
+    flex-direction: column;
+
+    .modal-body-title {
+      font-size: 2rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .modal-body-content {
+      color: #71767b;
+      font-size: 1.5rem;
+      margin-bottom: 2.4rem;
+    }
+
+    .modal-button {
+      border: 1px solid #fff;
+      padding: 1.2rem;
+      border-radius: 2.4rem;
+      text-align: center;
+      margin: 1.2rem 0;
+      color: white;
+      font-weight: bold;
+      font-size: 1.5rem;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.9;
+      }
+
+      &.unfollow {
+        background-color: #fff;
+        color: black;
+      }
+    }
+  }
 }

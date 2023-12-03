@@ -18,7 +18,7 @@
     cursor: pointer;
 
     &:hover {
-      background-color: $hover-color;
+      background-color: var(--hover-color);
       transition: background-color 0.3s;
     }
 
@@ -37,7 +37,7 @@
       flex-direction: column;
       align-items: flex-start;
       justify-content: center;
-      background-color: $bg-color;
+      background-color: var(--background-color);
 
       .more {
         cursor: pointer;
@@ -55,7 +55,7 @@
         top: -29rem;
         left: -13rem;
         width: 31.8rem;
-        background-color: $bg-color;
+        background-color: var(--background-color);
         box-shadow: rgba(255, 255, 255, 0.4) 0px 1px 4px;
 
         .template-list-top {
@@ -71,7 +71,7 @@
             cursor: pointer;
 
             &:hover {
-              background-color: $hover-color;
+              background-color: var(--hover-color);
             }
 
             .template-list-top-item-logo {
@@ -83,7 +83,7 @@
         }
 
         .template-list-line {
-          background-color: $hover-color;
+          background-color: var(--hover-color);
           width: 89%;
           height: 0.1rem;
           margin: 0.2rem auto;
@@ -102,13 +102,13 @@
             cursor: pointer;
 
             .template-list-bottom-item-icon i.active {
-              color: $twitter-blue;
+              color: var(--button-color);
               transform: rotate(-180deg);
               transition: 0.1s;
             }
 
             &:hover {
-              background-color: $hover-color;
+              background-color: var(--hover-color);
             }
           }
 
@@ -131,7 +131,7 @@
               }
 
               &:hover {
-                background-color: $hover-color;
+                background-color: var(--hover-color);
               }
             }
           }
@@ -162,7 +162,7 @@
         }
 
         &:hover .hover {
-          background-color: $hover-color;
+          background-color: var(--hover-color);
           transition: background-color 0.3s;
         }
 
@@ -189,7 +189,7 @@
               display: flex;
               align-items: center;
               justify-content: center;
-              background-color: $twitter-blue;
+              background-color: var(--button-color);
               border-radius: 50%;
             }
           }
@@ -217,7 +217,7 @@
     border-radius: 9999px;
 
     &:hover {
-      background-color: $hover-color;
+      background-color: var(--hover-color);
     }
 
     .profile-photo {
@@ -255,7 +255,7 @@
     max-width: 36rem;
     min-width: 260px;
     min-height: 30px;
-    background-color: black;
+    background-color: var(--background-color);
     box-shadow: rgba(255, 255, 255, 0.4) 0px 1px 4px;
     position: relative;
     padding: 1.2rem 0;
@@ -282,7 +282,7 @@
         padding: 1.2rem 1.6rem;
 
         &:hover {
-          background-color: $hover-color;
+          background-color: var(--hover-color);
         }
 
         span {
@@ -307,7 +307,7 @@
         font-size: 1.5rem;
         width: 100%;
         &:hover {
-          background-color: $hover-color;
+          background-color: var(--hover-color);
         }
 
         .profile-photo {
@@ -372,7 +372,7 @@
 
   .modal-body {
     width: 60rem;
-    background-color: black;
+    background-color: var(--background-color);
     padding: 3.2rem;
     border-radius: 1.6rem;
     display: flex;
@@ -394,7 +394,7 @@
       width: 48.2rem;
       border: 1px solid #ffffff57;
       background-color: black;
-      margin: 0 auto;
+      margin: 0 auto 32px;
       padding: 1.2rem;
       border-radius: 1.6rem;
       display: flex;
@@ -443,6 +443,55 @@
       padding: 0.8rem 0rem;
     }
 
+    .font-size {
+      .font-size-template {
+        .small-font {
+          font-size: 13px;
+        }
+        .big-font {
+          font-size: 20px;
+        }
+
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 0 10px;
+
+        .size-list {
+          background-color: #6eaef1;
+          width: 80%;
+          height: 3px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 0 10px;
+          position: relative;
+
+          &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            background-color: #007bff;
+            height: 100%;
+          }
+
+          .size-list-item {
+            background-color: #007bff;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            cursor: pointer;
+
+            &.active {
+              width: 16px;
+              height: 16px;
+            }
+          }
+        }
+      }
+    }
+
     .color-changer {
       margin: 1rem 0;
 
@@ -470,7 +519,7 @@
           }
 
           &.blue {
-            background-color: $twitter-blue;
+            background-color: var(--button-color);
           }
           &.yellow {
             background-color: yellow;
@@ -519,7 +568,7 @@
             color: black;
           }
           &.dim {
-            background-color: #333639;
+            background-color: #3e4144;
             color: #fff;
           }
           &.dark {

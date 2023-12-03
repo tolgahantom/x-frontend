@@ -8,7 +8,7 @@
   position: relative;
 
   .search-bar {
-    background-color: $hover-color;
+    background-color: var(--hover-color);
     height: 4.2rem;
     width: 35rem;
     padding: 1.2rem;
@@ -20,11 +20,11 @@
 
     &.focused {
       background-color: black;
-      border: 1px solid $twitter-blue;
+      border: 1px solid var(--button-color);
     }
 
     &.focused .icon {
-      color: $twitter-blue;
+      color: var(--button-color);
     }
 
     .search-input:focus & {
@@ -46,7 +46,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background-color: $twitter-blue;
+      background-color: var(--button-color);
       color: black;
       cursor: pointer;
     }
@@ -66,7 +66,7 @@
   }
 
   .search-list {
-    background-color: black;
+    background-color: var(--background-color);
     box-shadow: rgba(255, 255, 255, 0.4) 0px 1px 4px;
     border-radius: 0.8rem;
     font-size: 1.5rem;
@@ -81,7 +81,7 @@
   .premium {
     max-width: 35rem;
     margin: 1.6rem 0;
-    background-color: rgb(22, 24, 28);
+    background-color: var(--hover-color);
     border-radius: 1.6rem;
     padding: 2rem;
     font-weight: bold;
@@ -108,7 +108,7 @@
   .who-follow {
     width: 35rem;
     margin-bottom: 1.6rem;
-    background-color: rgb(22, 24, 28);
+    background-color: var(--hover-color);
     border-radius: 1.6rem;
     font-weight: bold;
     color: #e7e9ea;
@@ -239,7 +239,7 @@
         z-index: 0;
 
         &:hover {
-          background-color: $hover-color;
+          background-color: var(--hover-color);
         }
 
         .topic-title,
@@ -275,7 +275,7 @@
 
           &:hover {
             background-color: #1d9bf01a;
-            color: $twitter-blue;
+            color: var(--button-color);
             transition: all 0.3s;
             cursor: pointer;
           }
@@ -322,7 +322,7 @@
           height: 5.2rem;
           display: flex;
           align-items: center;
-          color: $twitter-blue;
+          color: var(--button-color);
           font-size: 1.5rem;
           font-weight: 300;
         }

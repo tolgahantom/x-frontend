@@ -1,4 +1,4 @@
-import { Component, NgModule } from '@angular/core';
+import { Component } from '@angular/core';
 import { PostsService } from 'src/app/utils/posts.service';
 
 @Component({
@@ -12,7 +12,6 @@ export class HomeComponent {
 
   constructor(private postService: PostsService) {
     this.contents = postService.getAllPost();
-    console.log(this.contents[1].poll.answer);
   }
 
   vote(answerid: number, postid: number) {

@@ -1,11 +1,51 @@
-$bg-color: black;
-$text-color: white;
-$border-color: #2f3336;
-$hover-color: #eff3f41a;
-$twitter-blue: #1d9bf0;
 $btn-small: 3rem;
 $btn-md: 4rem;
 $btn-big: 5rem;
+
+[data-theme="light"] {
+  --background-color: white;
+  --text-color: dark;
+  --border-color: #f1f1f1;
+  --hover-color: #ececec;
+}
+
+[data-theme="dark"] {
+  --background-color: black;
+  --text-color: white;
+  --border-color: #2f3336;
+  --hover-color: #eff3f41a;
+}
+
+[data-theme="dim"] {
+  --background-color: #15202b;
+  --text-color: white;
+  --border-color: #2f3336;
+  --hover-color: #1e2732;
+}
+
+[data-color="blue"] {
+  --button-color: #1d9bf0;
+}
+
+[data-color="yellow"] {
+  --button-color: yellow;
+}
+
+[data-color="pink"] {
+  --button-color: pink;
+}
+
+[data-color="purple"] {
+  --button-color: purple;
+}
+
+[data-color="orange"] {
+  --button-color: orange;
+}
+
+[data-color="green"] {
+  --button-color: yellowgreen;
+}
 
 .btn.btn-primary {
   outline: none;
@@ -17,7 +57,7 @@ $btn-big: 5rem;
   color: #fff;
   padding: 0 1.6rem;
   border-radius: 3rem;
-  background-color: $twitter-blue;
+  background-color: var(--button-color);
 }
 
 .btn.btn-small {
@@ -32,7 +72,7 @@ $btn-big: 5rem;
 
 .btn.btn-primary:hover {
   transition: all 0.3s;
-  background-color: $twitter-blue;
+  background-color: var(--button-color);
 }
 
 .z-2 {

@@ -19,6 +19,8 @@ import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './components/footer/footer.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { TabsModule } from 'ngx-bootstrap/tabs';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,7 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ScrollingModule,
     PopoverModule.forRoot(),
     AccordionModule.forRoot(),
     ModalModule.forRoot(),

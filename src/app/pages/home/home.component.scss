@@ -1,8 +1,8 @@
 .home-component {
   .tabs-header {
     padding-top: 1rem;
-    border-bottom: 1px solid #2f3336;
-    background: rgba(0, 0, 0, 0.7);
+    border-bottom: 1px solid var(--hover-color);
+    background: var(--background-color);
     backdrop-filter: blur(10px);
     position: sticky;
     top: 0;
@@ -12,7 +12,7 @@
 
     .tab-header {
       font-size: 2rem;
-      color: #e7e9ea;
+      color: var(--text-color);
       padding: 0 1.6rem;
       margin: 1rem 0;
       font-weight: bold;
@@ -213,6 +213,8 @@
               gap: 1rem;
 
               .poll-answer {
+                border-radius: 0.5rem;
+                overflow: hidden;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
@@ -223,6 +225,16 @@
                 width: 100%;
                 position: relative;
                 padding: 0 1rem;
+
+                .answer-title {
+                  display: flex;
+                  align-items: center;
+                  gap: 0.5rem;
+                  span {
+                    width: 1.5rem;
+                    height: 1.5rem;
+                  }
+                }
 
                 .percent {
                   position: absolute;
@@ -252,7 +264,7 @@
                 font-weight: bold;
                 border-radius: 12rem;
                 width: 100%;
-                background-color: black;
+                background-color: var(--background-color);
                 color: #1d9bf0;
                 border: 1px solid #1d9bf0;
 

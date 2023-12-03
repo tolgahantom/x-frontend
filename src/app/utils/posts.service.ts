@@ -35,9 +35,9 @@ export class PostsService {
         totalVote: 298,
         deadline: 5,
         answer: [
-          { id: 1, title: 'Dusan Tadic', vote: 102 },
-          { id: 2, title: 'Edin Dzeko', vote: 88 },
-          { id: 3, title: 'Sebastian Szymański', vote: 108 },
+          { id: 1, title: 'Dusan Tadic', vote: 102, voted: false },
+          { id: 2, title: 'Edin Dzeko', vote: 88, voted: false },
+          { id: 3, title: 'Sebastian Szymański', vote: 108, voted: false },
         ],
       },
 
@@ -158,6 +158,7 @@ export class PostsService {
     selectedPost?.poll?.answer.find((p) => {
       if (p.id == voteId) {
         p.vote++;
+        p.voted = true;
       }
     });
   }

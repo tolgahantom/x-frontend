@@ -2,7 +2,6 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { AccountService } from 'src/app/utils/accounts.service';
 import { LeftMenuService } from 'src/app/utils/left-menu.service';
-import { Renderer2, ElementRef } from '@angular/core';
 import { ThemeService } from 'src/app/utils/theme.service';
 
 @Component({
@@ -20,6 +19,8 @@ export class LeftSidebarComponent implements OnInit {
   selectedTheme: string = 'dark';
   textColor: string = '#fff';
   fontSizeWidth: string = '10%';
+  dynamicFill: string;
+  profileShapePathColor: string;
 
   constructor(
     private leftMenuService: LeftMenuService,
@@ -35,6 +36,13 @@ export class LeftSidebarComponent implements OnInit {
   ngOnInit(): void {
     this.selectedTheme = this.themeService.getThemeColor();
     this.activeColor = this.themeService.getColor();
+    if (this.selectedTheme == 'dark' || this.selectedTheme == 'dim') {
+      this.dynamicFill = '#fff';
+      this.profileShapePathColor = '#000';
+    } else {
+      this.dynamicFill = '#000';
+      this.profileShapePathColor = '#fff';
+    }
   }
 
   log(event: boolean) {
@@ -51,6 +59,14 @@ export class LeftSidebarComponent implements OnInit {
   }
 
   changeTheme(theme: string) {
+    if (this.selectedTheme == 'dark' || this.selectedTheme == 'dim') {
+      this.dynamicFill = '#fff';
+      this.profileShapePathColor = '#000';
+    } else {
+      this.dynamicFill = '#000';
+      this.profileShapePathColor = '#fff';
+    }
+
     this.selectedTheme = theme;
 
     this.themeService.setTheme(this.selectedTheme);
@@ -61,5 +77,6 @@ export class LeftSidebarComponent implements OnInit {
   changeColor(color: string) {
     this.themeService.setColor(color);
     document.body.setAttribute('data-color', this.themeService.getColor());
+    this.activeColor = this.themeService.getColor();
   }
 }

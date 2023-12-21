@@ -8,6 +8,10 @@
   flex-direction: column;
   align-items: flex-start;
 
+  .sm-button {
+    display: none;
+  }
+
   .logo {
     width: 5rem;
     height: 5rem;
@@ -47,16 +51,17 @@
         outline: none;
         border: none;
         background-color: transparent;
-        color: #fff;
+        color: var(--text-color);
+        font-weight: normal;
       }
 
       .template-list {
         position: absolute;
-        top: -29rem;
-        left: -13rem;
+        top: -17rem;
+        left: -10rem;
         width: 31.8rem;
         background-color: var(--background-color);
-        box-shadow: rgba(255, 255, 255, 0.4) 0px 1px 4px;
+        box-shadow: var(--box-shadow-attribute);
 
         .template-list-top {
           font-size: 2rem;
@@ -256,11 +261,11 @@
     min-width: 260px;
     min-height: 30px;
     background-color: var(--background-color);
-    box-shadow: rgba(255, 255, 255, 0.4) 0px 1px 4px;
+    box-shadow: var(--box-shadow-attribute);
     position: relative;
     padding: 1.2rem 0;
     border-radius: 2rem;
-    color: #e7e9ea;
+    color: var(--text-color);
 
     .profile-popover-icon {
       width: 2.4rem;
@@ -356,7 +361,6 @@
 .modal {
   position: fixed;
   top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(138, 138, 138, 0.1); /* Siyah ve %70 saydamlık */
@@ -519,7 +523,7 @@
           }
 
           &.blue {
-            background-color: var(--button-color);
+            background-color: #1d9bf0;
           }
           &.yellow {
             background-color: yellow;
@@ -624,6 +628,49 @@
       &:hover {
         opacity: 0.8;
       }
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .sidebar {
+    width: 7.5rem;
+
+    .sm-button {
+      display: block;
+    }
+
+    .lg-button {
+      display: none;
+    }
+
+    .menu-link-item-text {
+      display: none;
+    }
+
+    .profile-box {
+      width: 100%;
+      margin-left: -1.2rem;
+
+      .profile-names {
+        display: none;
+      }
+
+      .profile-settings-icon {
+        display: none;
+      }
+    }
+
+    .profile-popover {
+      margin-left: 7rem;
+
+      .profile-popover-icon {
+        left: 4rem;
+      }
+    }
+
+    .template-list {
+      margin-left: 10rem;
     }
   }
 }

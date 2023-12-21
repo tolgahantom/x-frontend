@@ -5,7 +5,9 @@
   flex-direction: column;
   align-items: center;
   padding: 1.2rem 0;
-  position: relative;
+  position: sticky;
+  top: 0;
+  position: -webkit-sticky;
 
   .search-bar {
     background-color: var(--hover-color);
@@ -112,7 +114,6 @@
     border-radius: 1.6rem;
     font-weight: bold;
     color: #e7e9ea;
-    overflow: hidden;
 
     .topics-title,
     .who-follow-title {
@@ -307,7 +308,7 @@
           width: 35rem;
           border-radius: 1.6rem;
           font-size: 1.5rem;
-          z-index: 1010 !important;
+
           .more-popover-item {
             display: flex;
             align-items: center;

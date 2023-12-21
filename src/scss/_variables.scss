@@ -7,6 +7,7 @@ $btn-big: 5rem;
   --text-color: dark;
   --border-color: #f1f1f1;
   --hover-color: #ececec;
+  --box-shadow-attribute: rgba(0, 0, 0, 0.4) 0px 1px 4px;
 }
 
 [data-theme="dark"] {
@@ -14,6 +15,7 @@ $btn-big: 5rem;
   --text-color: white;
   --border-color: #2f3336;
   --hover-color: #eff3f41a;
+  --box-shadow-attribute: rgba(255, 255, 255, 0.4) 0px 1px 4px;
 }
 
 [data-theme="dim"] {
@@ -21,6 +23,7 @@ $btn-big: 5rem;
   --text-color: white;
   --border-color: #2f3336;
   --hover-color: #1e2732;
+  --box-shadow-attribute: rgba(255, 255, 255, 0.4) 0px 1px 4px;
 }
 
 [data-color="blue"] {
@@ -45,6 +48,26 @@ $btn-big: 5rem;
 
 [data-color="green"] {
   --button-color: yellowgreen;
+}
+
+[data-font="18px"] {
+  --font-size: 9px;
+}
+
+[data-font="19px"] {
+  --font-size: 9.5px;
+}
+
+[data-font="20px"] {
+  --font-size: 10px;
+}
+
+[data-font="21px"] {
+  --font-size: 10.5px;
+}
+
+[data-font="22px"] {
+  --font-size: 11px;
 }
 
 .btn.btn-primary {

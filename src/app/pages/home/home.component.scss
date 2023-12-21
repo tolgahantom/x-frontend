@@ -135,10 +135,11 @@
 
         .content-mid-side {
           margin: 0.5rem 0;
+          width: 100%;
 
           .photos {
             margin-top: 1rem;
-            width: 51rem;
+            width: 100%;
             height: auto;
             border-radius: 1rem;
             overflow: hidden;
@@ -202,7 +203,7 @@
             flex-direction: column;
             justify-content: flex-start;
             gap: 1rem;
-            width: 51rem;
+            width: 100%;
             margin-top: 1rem;
 
             .poll-answers.voted {
@@ -367,5 +368,16 @@
         }
       }
     }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .photos {
+    width: 100px;
+    height: 300rem;
+  }
+
+  .poll {
+    width: 100% !important;
   }
 }
